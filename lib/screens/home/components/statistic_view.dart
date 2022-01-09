@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/constants.dart';
+import 'package:pccovid/screens/home/components/statistic_view_model.dart';
+import 'package:provider/provider.dart';
 
 enum StatisticType { confirmed, active, recovered, deceased }
 
 class StatisticDisplayConfig {
   String title;
   Color textColor;
+  int? value;
 
-  StatisticDisplayConfig(this.title, this.textColor);
+  StatisticDisplayConfig(this.title, this.textColor, this.value);
 }
 
-class StatisticView extends StatelessWidget {
+class StatisticView extends StatefulWidget {
   const StatisticView({Key? key}) : super(key: key);
+
+  @override
+  State<StatisticView> createState() => _StatisticViewState();
+}
+
+class _StatisticViewState extends State<StatisticView> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<StatisticViewModel>(context, listen: false)
+        .fetchCountryStatisticData();
+  }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final viewModel = Provider.of<StatisticViewModel>(context);
 
     return SizedBox(
       height: 282,
@@ -30,14 +46,15 @@ class StatisticView extends StatelessWidget {
               childAspectRatio: (size.width - 56) / 240),
           itemCount: StatisticType.values.length,
           itemBuilder: (context, index) {
-            return buildStatisticItem(index);
+            return buildStatisticItem(index, viewModel);
           }),
     );
   }
 
-  Container buildStatisticItem(int index) {
+  Container buildStatisticItem(int index, StatisticViewModel viewModel) {
     StatisticType type = StatisticType.values[index];
-    StatisticDisplayConfig config = generateDisplayConfig(type);
+    StatisticDisplayConfig config = generateDisplayConfig(type, viewModel);
+    String display = config.value != null ? "${config.value}" : "_";
 
     return Container(
         decoration: BoxDecoration(
@@ -54,7 +71,7 @@ class StatisticView extends StatelessWidget {
                 left: 15),
             Positioned(
                 child: Text(
-                  "2,373,395",
+                  display,
                   style: TextStyle(
                       color: config.textColor,
                       fontWeight: FontWeight.bold,
@@ -66,16 +83,21 @@ class StatisticView extends StatelessWidget {
         ));
   }
 
-  StatisticDisplayConfig generateDisplayConfig(StatisticType type) {
+  StatisticDisplayConfig generateDisplayConfig(
+      StatisticType type, StatisticViewModel viewModel) {
     switch (type) {
       case StatisticType.confirmed:
-        return StatisticDisplayConfig("Confirmed", colorFC1441);
+        return StatisticDisplayConfig(
+            "Confirmed", colorFC1441, viewModel.data?.infected);
       case StatisticType.active:
-        return StatisticDisplayConfig("Active", color157FFB);
+        return StatisticDisplayConfig(
+            "Active", color157FFB, viewModel.data?.treated);
       case StatisticType.recovered:
-        return StatisticDisplayConfig("Recovered", color30A64A);
+        return StatisticDisplayConfig(
+            "Recovered", color30A64A, viewModel.data?.recovered);
       case StatisticType.deceased:
-        return StatisticDisplayConfig("Deceased", color6D757D);
+        return StatisticDisplayConfig(
+            "Deceased", color6D757D, viewModel.data?.died);
     }
   }
 }

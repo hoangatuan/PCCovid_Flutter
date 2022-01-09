@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pccovid/constants.dart';
+import 'package:pccovid/screens/home/components/statistic_view_model.dart';
+import 'package:provider/provider.dart';
 
 import 'components/home_header_view.dart';
 import 'components/home_main_segment_control.dart';
@@ -17,16 +19,21 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: colorE5E5E5,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const HomeHeaderView(),
-            PrecautionsGuideView(onPress: () {}),
-            const HomeMainSegment(),
-            RangeSlectionView(onChangeRange: (range) {}),
-            const StatisticView(),
-            const Text("Spread Trends", style: TextStyle(fontSize: 18)),
-          ],
+      body: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => StatisticViewModel())
+        ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const HomeHeaderView(),
+              PrecautionsGuideView(onPress: () {}),
+              const HomeMainSegment(),
+              RangeSlectionView(onChangeRange: (range) {}),
+              const StatisticView(),
+              const Text("Spread Trends", style: TextStyle(fontSize: 18)),
+            ],
+          ),
         ),
       ),
     );
