@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pccovid/screens/home/components/statistic_view_model.dart';
+import 'package:pccovid/screens/homee/components/statistic_view_model.dart';
 import 'package:provider/provider.dart';
 
 enum StatisticType { confirmed, recovered, deceased }
@@ -23,11 +23,13 @@ class StatisticView extends StatefulWidget {
 }
 
 class _StatisticViewState extends State<StatisticView> {
+  StatisticViewModel? _viewModel;
+
   @override
   void initState() {
     super.initState();
-    Provider.of<StatisticViewModel>(context, listen: false)
-        .fetchCountryStatisticData();
+    _viewModel = Provider.of<StatisticViewModel>(context, listen: false);
+    _viewModel?.prepareDatas();
   }
 
   @override
@@ -102,21 +104,17 @@ class _StatisticViewState extends State<StatisticView> {
             "Confirmed",
             const Color(0xFF9F735F),
             const Color(0xFFEECDBE),
-            viewModel.data?.infected);
+            viewModel.confirmed);
       case StatisticType.recovered:
         return StatisticDisplayConfig(
             "assets/homee/heart.png",
             "Recovered",
             const Color(0xFF9F6479),
             const Color(0xFFEBBFCC),
-            viewModel.data?.recovered);
+            viewModel.recovered);
       case StatisticType.deceased:
-        return StatisticDisplayConfig(
-            "assets/homee/remove.png",
-            "Deaths",
-            const Color(0xFF9F735F),
-            const Color(0xFFEECDBE),
-            viewModel.data?.died);
+        return StatisticDisplayConfig("assets/homee/remove.png", "Deaths",
+            const Color(0xFF9F735F), const Color(0xFFEECDBE), viewModel.deaths);
     }
   }
 }

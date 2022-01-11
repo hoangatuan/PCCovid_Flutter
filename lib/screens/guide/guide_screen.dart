@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pccovid/screens/homee/homee_screen.dart';
+import 'package:pccovid/screens/home/home_screen.dart';
 import 'components/guide_bottom_view.dart';
 
 class GuideScreen extends StatelessWidget {
@@ -27,7 +27,7 @@ class GuideScreen extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomeeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                   ))
             ],
