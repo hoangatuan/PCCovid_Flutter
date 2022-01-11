@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:pccovid/constants.dart';
 import 'package:pccovid/screens/home/components/statistic_view_model.dart';
 import 'package:provider/provider.dart';
 
-enum StatisticType { confirmed, active, recovered, deceased }
+enum StatisticType { confirmed, recovered, deceased }
 
 class StatisticDisplayConfig {
+  String image;
   String title;
   Color textColor;
+  Color backgroundColor;
   int? value;
 
-  StatisticDisplayConfig(this.title, this.textColor, this.value);
+  StatisticDisplayConfig(
+      this.image, this.title, this.textColor, this.backgroundColor, this.value);
 }
 
 class StatisticView extends StatefulWidget {
@@ -30,74 +32,91 @@ class _StatisticViewState extends State<StatisticView> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    final viewModel = Provider.of<StatisticViewModel>(context);
-
-    return SizedBox(
-      height: 282,
-      child: GridView.builder(
-          primary: false,
-          shrinkWrap: true,
-          padding: const EdgeInsets.only(left: 18, right: 18),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
-              crossAxisCount: 2,
-              childAspectRatio: (size.width - 56) / 240),
-          itemCount: StatisticType.values.length,
-          itemBuilder: (context, index) {
-            return buildStatisticItem(index, viewModel);
-          }),
+    return Row(
+      children: [
+        const Spacer(),
+        buildStatisticItem1(StatisticType.confirmed),
+        const Spacer(),
+        buildStatisticItem1(StatisticType.recovered),
+        const Spacer(),
+        buildStatisticItem1(StatisticType.deceased),
+        const Spacer(),
+      ],
     );
   }
 
-  Container buildStatisticItem(int index, StatisticViewModel viewModel) {
-    StatisticType type = StatisticType.values[index];
-    StatisticDisplayConfig config = generateDisplayConfig(type, viewModel);
-    String display = config.value != null ? "${config.value}" : "_";
+  Container buildStatisticItem1(StatisticType type) {
+    Size size = MediaQuery.of(context).size;
+    StatisticDisplayConfig config = generateDisplayConfig(type);
+    String display = generateDisplayText(config.value);
 
     return Container(
+        height: 140,
+        width: (size.width - 80) / 3,
         decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            color: config.textColor.withAlpha(24)),
-        child: Stack(
+            borderRadius: const BorderRadius.all(Radius.circular(24)),
+            color: config.backgroundColor),
+        child: Column(
           children: [
-            Positioned(
-                child: Text(
-                  config.title,
-                  style: TextStyle(color: config.textColor, fontSize: 17),
-                ),
-                top: 13,
-                left: 15),
-            Positioned(
-                child: Text(
-                  display,
-                  style: TextStyle(
-                      color: config.textColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-                bottom: 15,
-                right: 15)
+            const SizedBox(height: 24),
+            Image.asset(config.image, width: 32, height: 32),
+            const SizedBox(height: 20),
+            Text(
+              display,
+              style: TextStyle(
+                  color: config.textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              config.title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            )
           ],
         ));
   }
 
-  StatisticDisplayConfig generateDisplayConfig(
-      StatisticType type, StatisticViewModel viewModel) {
+  String generateDisplayText(int? value) {
+    if (value == null) {
+      return "_";
+    }
+
+    if (value > 1000000) {
+      return "${value ~/ 1000000}M+";
+    }
+
+    if (value > 1000) {
+      return "${value ~/ 1000}K+";
+    }
+
+    return "$value";
+  }
+
+  StatisticDisplayConfig generateDisplayConfig(StatisticType type) {
+    final viewModel = Provider.of<StatisticViewModel>(context);
     switch (type) {
       case StatisticType.confirmed:
         return StatisticDisplayConfig(
-            "Confirmed", colorFC1441, viewModel.data?.infected);
-      case StatisticType.active:
-        return StatisticDisplayConfig(
-            "Active", color157FFB, viewModel.data?.treated);
+            "assets/homee/add.png",
+            "Confirmed",
+            const Color(0xFF9F735F),
+            const Color(0xFFEECDBE),
+            viewModel.data?.infected);
       case StatisticType.recovered:
         return StatisticDisplayConfig(
-            "Recovered", color30A64A, viewModel.data?.recovered);
+            "assets/homee/heart.png",
+            "Recovered",
+            const Color(0xFF9F6479),
+            const Color(0xFFEBBFCC),
+            viewModel.data?.recovered);
       case StatisticType.deceased:
         return StatisticDisplayConfig(
-            "Deceased", color6D757D, viewModel.data?.died);
+            "assets/homee/remove.png",
+            "Deaths",
+            const Color(0xFF9F735F),
+            const Color(0xFFEECDBE),
+            viewModel.data?.died);
     }
   }
 }
