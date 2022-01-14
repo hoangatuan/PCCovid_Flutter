@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeHeaderView extends StatelessWidget {
+  final String image;
+  final String title;
+
   const HomeHeaderView({
     Key? key,
+    required this.image,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -23,21 +28,21 @@ class HomeHeaderView extends StatelessWidget {
                   end: Alignment.bottomLeft,
                   colors: [Color(0xFF3383CD), Color(0xFF11249F)]),
               image:
-                  DecorationImage(image: AssetImage("assets/homee/virus.png"))),
+                  DecorationImage(image: AssetImage("assets/home/virus.png"))),
           child: Stack(
             children: [
               SvgPicture.asset(
-                "assets/homee/Drcorona.svg",
+                image,
                 width: 230,
                 fit: BoxFit.fitWidth,
                 alignment: Alignment.topLeft,
               ),
-              const Positioned(
+              Positioned(
                   left: 150,
                   top: 20,
                   child: Text(
-                    'All you needed \nis stay at home.',
-                    style: TextStyle(
+                    title,
+                    style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 20),

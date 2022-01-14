@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pccovid/screens/detail_statistic/detail_statistic_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'components/home_header_view.dart';
@@ -13,15 +14,18 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final statisticViewModel = StatisticViewModel();
+
     return Scaffold(
         body: MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => statisticViewModel)
+        ChangeNotifierProvider(create: (context) => statisticViewModel),
       ],
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const HomeHeaderView(),
+            const HomeHeaderView(
+                image: "assets/home/Drcorona.svg",
+                title: "All you needed \nis stay at home."),
             RangeSlectionView(
               onChangeRange: (range) {
                 statisticViewModel.update(range);
@@ -44,10 +48,19 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.black38))
                   ])),
                   const Spacer(),
-                  const Text(
-                    'Details',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600, color: Colors.blue),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  const DetailStatisticScreen()));
+                    },
+                    child: const Text(
+                      'Details',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.blue),
+                    ),
                   )
                 ],
               ),
@@ -65,7 +78,12 @@ class HomeScreen extends StatelessWidget {
                         fontSize: 18)),
               ),
             ),
-            PrecautionsGuideView(onPress: () {})
+            PrecautionsGuideView(onPress: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DetailStatisticScreen()));
+            })
           ],
         ),
       ),
