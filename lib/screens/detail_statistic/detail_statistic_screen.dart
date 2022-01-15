@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/detail_statistic/components/country_today_statistic.dart';
 import 'package:pccovid/screens/detail_statistic/viewmodels/detail_statistic_view_model.dart';
-import 'package:pccovid/screens/home/components/statistic_view.dart';
+import 'package:pccovid/screens/detail_statistic/viewmodels/weekly_statistic_chart_view_model.dart';
 import 'package:provider/provider.dart';
+
+import 'components/weekly_statistic_bar_chart_view.dart';
 
 class StatisticDisplayConfig {
   String title;
@@ -23,7 +25,8 @@ class _DetailStatisticScreenState extends State<DetailStatisticScreen> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => DetailStatisticViewModel())
+        ChangeNotifierProvider(create: (context) => DetailStatisticViewModel()),
+        ChangeNotifierProvider(create: (context) => StatisticChartViewModel())
       ],
       child: Scaffold(
           appBar: AppBar(
@@ -39,17 +42,19 @@ class _DetailStatisticScreenState extends State<DetailStatisticScreen> {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18)),
+                          fontSize: 20)),
                 ),
                 CountryTodayStatistic(),
+                SizedBox(height: 8),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("Select a city",
+                  child: Text("Daily New Cases",
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18)),
+                          fontSize: 20)),
                 ),
+                WeeklyStatisticBarChart(),
               ],
             ),
           )),
