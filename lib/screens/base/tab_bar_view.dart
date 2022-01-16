@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pccovid/helpers/constants.dart';
 import 'package:pccovid/screens/account/account_screen.dart';
-import 'package:pccovid/screens/detail_statistic/detail_statistic_screen.dart';
 import 'package:pccovid/screens/home/home_screen.dart';
 import 'package:pccovid/screens/qr/qr_screen.dart';
 
@@ -14,9 +12,9 @@ class CustomTabBarView extends StatefulWidget {
 
 class _CustomTabBarViewState extends State<CustomTabBarView> {
   int _selectedIndex = 0;
-  static const List<Widget> _pages = <Widget>[
-    HomeScreen(),
-    QRScreen(),
+  static final List<Widget> _pages = <Widget>[
+    const HomeScreen(),
+    const QRScreen(),
     AccountScreen()
   ];
 
