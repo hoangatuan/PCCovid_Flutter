@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:pccovid/helpers/constants.dart';
 import 'package:pccovid/screens/account/view_model/account_view_model.dart';
+import 'package:pccovid/screens/webview/in_app_webview_screen.dart';
 
 enum UtilityType { introduce, language, place, logout }
 
-class AccountScreen extends StatelessWidget {
-  AccountScreen({Key? key}) : super(key: key);
+class AccountScreen extends StatefulWidget {
+  const AccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
   final AccountViewModel viewModel = AccountViewModel();
 
   @override
@@ -44,35 +52,46 @@ class AccountScreen extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       height: 50,
-      child: Stack(
-        children: [
+      child: GestureDetector(
+        onTap: () => didSelectItemAtIndex(index),
+        child: Stack(children: [
           Center(
-            child: Row(
-              children: [
-                Image.asset(
-                  viewModel.icons[index],
-                  height: 24,
-                ),
-                const SizedBox(width: 16),
-                Text(
-                  viewModel.title[index],
+            child: Row(children: [
+              Image.asset(viewModel.icons[index], height: 24),
+              const SizedBox(width: 16),
+              Text(viewModel.title[index],
                   style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w500),
-                )
-              ],
-            ),
+                      fontSize: 18, fontWeight: FontWeight.w500))
+            ]),
           ),
           if (index != viewModel.numberOfItems - 1)
             Positioned(
                 bottom: 0,
                 left: 0,
                 right: 0,
-                child: Container(
-                  height: 1,
-                  color: Colors.black,
-                )),
-        ],
+                child: Container(height: 1, color: Colors.black))
+        ]),
       ),
     );
+  }
+
+  void didSelectItemAtIndex(int index) {
+    switch (index) {
+      case 0:
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const InAppWebView(
+                      url: Constants.introduceUrl,
+                      title: "Introduce",
+                    )));
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+      default:
+        break;
+    }
   }
 }

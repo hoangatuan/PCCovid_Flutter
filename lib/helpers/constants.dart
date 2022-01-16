@@ -11,3 +11,7 @@ Color colorFC1441 = HexColor("#FC1441");
 Color color157FFB = HexColor("#157FFB");
 Color color30A64A = HexColor("#30A64A");
 Color color6D757D = HexColor("#6D757D");
+
+class Constants {
+  static const String introduceUrl = "https://pccovid.gov.vn/gioi-thieu";
+}
