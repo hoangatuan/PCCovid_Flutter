@@ -22,7 +22,6 @@ class HomeHeaderView extends StatelessWidget {
           height: 320,
           width: size.width,
           decoration: const BoxDecoration(
-              color: Colors.yellow,
               gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,

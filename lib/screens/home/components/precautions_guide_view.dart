@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../constants.dart';
+import '../../../helpers/constants.dart';
 
 class PrecautionsGuideView extends StatelessWidget {
   const PrecautionsGuideView({Key? key, required this.onPress})
