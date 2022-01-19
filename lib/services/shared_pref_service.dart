@@ -23,18 +23,5 @@ class SharePreferenceService {
   static dynamic getValue<T>(SharePreferenceKey key) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     return pref.get(key.rawValue);
-
-    // switch (T) {
-    //   case int:
-    //     return pref.getInt(key);
-    //   case String:
-    //     return pref.getString(key);
-    //   case double:
-    //     return pref.getDouble(key);
-    //   case bool:
-    //     return pref.getBool(key);
-    //   default:
-    //     return pref.getStringList(key);
-    // }
   }
 }

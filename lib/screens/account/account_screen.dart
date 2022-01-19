@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pccovid/helpers/constants.dart';
 import 'package:pccovid/screens/account/view_model/account_view_model.dart';
 import 'package:pccovid/screens/guide/guide_screen.dart';
-import 'package:pccovid/screens/places_history/places_history_screen.dart';
+import 'package:pccovid/screens/places_history/view/places_history_screen.dart';
+import 'package:pccovid/screens/places_history/viewmodel/place_history_viewmodel.dart';
 import 'package:pccovid/screens/webview/in_app_webview_screen.dart';
 import 'package:pccovid/services/shared_pref_service.dart';
+import 'package:provider/provider.dart';
 
 enum UtilityType { introduce, language, place, logout }
 
