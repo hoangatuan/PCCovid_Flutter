@@ -24,7 +24,8 @@ class SplashScreen extends StatelessWidget {
 
   Future<Widget> getHomeScreen() async {
     bool didReadGuideLine = await SharePreferenceService.getValue<bool>(
-        SharePreferenceKey.didReadGuideLine);
+            SharePreferenceKey.didReadGuideLine) ??
+        false;
     if (didReadGuideLine) {
       return const CustomTabBarView();
     }

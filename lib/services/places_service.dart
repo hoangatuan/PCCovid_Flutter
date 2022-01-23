@@ -37,9 +37,11 @@ class PlacesDatabase {
     ''');
   }
 
-  Future create(Place place) async {
+  Future<bool> create(Place place) async {
     final db = await database;
-    await db.insert(tablePlaces, place.toJson());
+    int res = await db.insert(tablePlaces, place.toJson());
+    bool isSuccess = res != 0;
+    return isSuccess;
   }
 
   Future<List<Place>> getAllPlaces() async {

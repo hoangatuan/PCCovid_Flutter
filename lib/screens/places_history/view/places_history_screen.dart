@@ -11,7 +11,7 @@ class PlacesHistoryScreen extends StatefulWidget {
 }
 
 class _PlacesHistoryScreenState extends State<PlacesHistoryScreen> {
-  IPlaceHistoryViewModel viewModel = MockPlaceHistoryViewModel();
+  IPlaceHistoryViewModel viewModel = PlaceHistoryViewModel();
 
   @override
   Widget build(BuildContext context) {

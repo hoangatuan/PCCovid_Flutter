@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pccovid/screens/qr/view/scan_qr_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({Key? key}) : super(key: key);
@@ -17,7 +18,12 @@ class AccountScreen extends StatelessWidget {
             const Spacer(),
             Center(
                 child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ScanQRScreen()));
+              },
               child: Container(
                   width: 64,
                   height: 64,

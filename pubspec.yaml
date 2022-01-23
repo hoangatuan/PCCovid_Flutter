@@ -43,6 +43,7 @@ dependencies:
   webview_flutter: ^3.0.0
   shared_preferences: ^2.0.12
   sqflite: ^2.0.2
+  qr_code_scanner: ^0.6.1
 
 dev_dependencies:
   flutter_test:
