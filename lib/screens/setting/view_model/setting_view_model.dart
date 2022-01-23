@@ -1,4 +1,4 @@
-class AccountViewModel {
+class SettingViewModel {
   int get numberOfItems {
     return icons.length;
   }

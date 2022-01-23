@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/account/account_screen.dart';
 import 'package:pccovid/screens/home/home_screen.dart';
-import 'package:pccovid/screens/qr/qr_screen.dart';
+import 'package:pccovid/screens/setting/setting_screen.dart';
 
 class CustomTabBarView extends StatefulWidget {
   const CustomTabBarView({Key? key}) : super(key: key);
@@ -14,8 +14,8 @@ class _CustomTabBarViewState extends State<CustomTabBarView> {
   int _selectedIndex = 0;
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
-    const QRScreen(),
-    AccountScreen()
+    const AccountScreen(),
+    const SettingScreen()
   ];
 
   @override
@@ -45,10 +45,10 @@ class _CustomTabBarViewState extends State<CustomTabBarView> {
                   icon: ImageIcon(AssetImage("assets/icons/analytics.png")),
                   label: ""),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/qr-code.png")),
+                  icon: ImageIcon(AssetImage("assets/icons/user.png")),
                   label: ""),
               BottomNavigationBarItem(
-                  icon: ImageIcon(AssetImage("assets/icons/user.png")),
+                  icon: ImageIcon(AssetImage("assets/icons/ic_settings.png")),
                   label: "")
             ],
             currentIndex: _selectedIndex,
