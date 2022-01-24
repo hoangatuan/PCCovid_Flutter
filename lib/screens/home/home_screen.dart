@@ -8,6 +8,8 @@ import 'components/range_selection_view.dart';
 import 'components/statistic_view.dart';
 import 'components/statistic_view_model.dart';
 
+import 'package:easy_localization/src/public_ext.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -23,9 +25,8 @@ class HomeScreen extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const HomeHeaderView(
-                image: "assets/home/Drcorona.svg",
-                title: "All you needed \nis stay at home."),
+            HomeHeaderView(
+                image: "assets/home/Drcorona.svg", title: "stayhome".tr()),
             RangeSlectionView(
               onChangeRange: (range) {
                 statisticViewModel.update(range);
@@ -36,16 +37,16 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 children: [
                   RichText(
-                      text: const TextSpan(children: [
+                      text: TextSpan(children: [
                     TextSpan(
-                        text: "Covid-19 Lastest Update\n",
-                        style: TextStyle(
+                        text: "lastestUpdate".tr(),
+                        style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 18)),
                     TextSpan(
-                        text: "Newest update Jan 10",
-                        style: TextStyle(color: Colors.black38))
+                        text: "newestUpdate".tr(),
+                        style: const TextStyle(color: Colors.black38))
                   ])),
                   const Spacer(),
                   GestureDetector(
@@ -57,25 +58,26 @@ class HomeScreen extends StatelessWidget {
                                   const DetailStatisticScreen()));
                     },
                     child: const Text(
-                      'Details',
+                      'details',
                       style: TextStyle(
                           fontWeight: FontWeight.w600, color: Colors.blue),
-                    ),
+                    ).tr(),
                   )
                 ],
               ),
             ),
             const StatisticView(),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.only(left: 16, bottom: 16),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, bottom: 16),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text("More about Covid-19",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18)),
+                child: const Text("more-about-covid",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18))
+                    .tr(),
               ),
             ),
             PrecautionsGuideView(onPress: () {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class GuideBottomView extends StatelessWidget {
@@ -24,22 +25,22 @@ class GuideBottomView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text("Be aware", style: TextStyle(fontSize: 28)),
+            const Text("be-aware", style: TextStyle(fontSize: 28)).tr(),
             const SizedBox(height: 4),
-            const Text("Stay healthy", style: TextStyle(fontSize: 28)),
+            const Text("stayHealthy", style: TextStyle(fontSize: 28)).tr(),
             const SizedBox(height: 20),
             const Text(
-              "Welcome to COVID-19 information portal.",
+              "welcomeText",
               style: TextStyle(fontSize: 16),
-            ),
+            ).tr(),
             const SizedBox(height: 24),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const Text(
-                  "GET STARTED",
+                  "getStarted",
                   style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                ).tr(),
                 const SizedBox(width: 16),
                 GestureDetector(
                     child: Container(

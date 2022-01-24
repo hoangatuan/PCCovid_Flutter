@@ -5,6 +5,7 @@ import 'package:pccovid/screens/places_history/view/places_history_screen.dart';
 import 'package:pccovid/screens/setting/view_model/setting_view_model.dart';
 import 'package:pccovid/screens/webview/in_app_webview_screen.dart';
 import 'package:pccovid/services/shared_pref_service.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 enum UtilityType { introduce, language, place, logout }
 
@@ -84,9 +85,9 @@ class _SettingScreenState extends State<SettingScreen> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => const InAppWebView(
+                builder: (context) => InAppWebView(
                       url: Constants.introduceUrl,
-                      title: "Introduce",
+                      title: "introduce".tr(),
                     )));
         break;
       case 1:

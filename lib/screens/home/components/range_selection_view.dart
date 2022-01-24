@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 enum TrackerRange { country, worldwide }
 
@@ -55,9 +56,9 @@ class _RangeSlectionViewState extends State<RangeSlectionView> {
   String getTitle(TrackerRange range) {
     switch (range) {
       case TrackerRange.country:
-        return "Country";
+        return "country".tr();
       case TrackerRange.worldwide:
-        return "Worldwide";
+        return "worldwide".tr();
     }
   }
 }

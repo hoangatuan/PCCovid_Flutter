@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/qr/view_model/scan_qr_view_model.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 class ScanQRScreen extends StatefulWidget {
   const ScanQRScreen({Key? key}) : super(key: key);
@@ -98,8 +99,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              content: const Text(
-                  ("Please allow PCCovid to use camera to scan QR in iphone setting.")),
+              content: const Text(("request_camera_permission")).tr(),
               actions: [okButton],
             ));
   }
@@ -111,7 +111,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> {
     bool isSuccess = await viewModel.savePlace(data.code!);
     String message = isSuccess
         ? "You have checked in successfully at ${data.code!}"
-        : "Some errors have occurred. Please try again.";
+        : "checkin_fail".tr();
 
     Widget okButton = TextButton(
         onPressed: () {

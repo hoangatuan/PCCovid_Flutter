@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/home/components/statistic_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 enum StatisticType { confirmed, recovered, deceased, treated }
 
@@ -101,19 +102,19 @@ class _StatisticViewState extends State<StatisticView> {
       case StatisticType.confirmed:
         return StatisticDisplayConfig(
             "assets/home/add.png",
-            "Confirmed",
+            "confirmed".tr(),
             const Color(0xFF9F735F),
             const Color(0xFFEECDBE),
             viewModel.confirmed);
       case StatisticType.recovered:
         return StatisticDisplayConfig(
             "assets/home/heart.png",
-            "Recovered",
+            "recovered".tr(),
             const Color(0xFF9F6479),
             const Color(0xFFEBBFCC),
             viewModel.recovered);
       case StatisticType.deceased:
-        return StatisticDisplayConfig("assets/home/remove.png", "Deaths",
+        return StatisticDisplayConfig("assets/home/remove.png", "deaths".tr(),
             const Color(0xFF9F735F), const Color(0xFFEECDBE), viewModel.deaths);
       default:
         return StatisticDisplayConfig("", "", Colors.white, Colors.white, null);

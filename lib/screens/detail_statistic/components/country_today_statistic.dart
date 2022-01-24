@@ -3,6 +3,7 @@ import 'package:pccovid/screens/detail_statistic/viewmodels/detail_statistic_vie
 import 'package:pccovid/screens/home/components/statistic_view.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 class StatisticDisplayConfig {
   String title;
@@ -34,9 +35,9 @@ class _CountryTodayStatisticState extends State<CountryTodayStatistic> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("VIETNAM SITUATION",
-              style:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
+          Text("vietnam-situation".tr(),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.grey)),
           const SizedBox(height: 8),
           Row(children: [
             buildStatisticItem(StatisticType.confirmed),
@@ -109,22 +110,22 @@ class _CountryTodayStatisticState extends State<CountryTodayStatistic> {
     switch (type) {
       case StatisticType.confirmed:
         return StatisticDisplayConfig(
-            "Confirmed",
+            "confirmed".tr(),
             _viewModel.countryStatistic?.infected,
             _viewModel.countryStatistic?.infectedToday);
       case StatisticType.treated:
         return StatisticDisplayConfig(
-            "Treated",
+            "treated".tr(),
             _viewModel.countryStatistic?.treated,
             _viewModel.countryStatistic?.treatedToday);
       case StatisticType.recovered:
         return StatisticDisplayConfig(
-            "Recovered",
+            "recovered".tr(),
             _viewModel.countryStatistic?.recovered,
             _viewModel.countryStatistic?.recoveredToday);
       case StatisticType.deceased:
         return StatisticDisplayConfig(
-            "Deaths",
+            "deaths".tr(),
             _viewModel.countryStatistic?.died,
             _viewModel.countryStatistic?.diedToday);
     }

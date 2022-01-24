@@ -1,0 +1,35 @@
+{
+    "be-aware": "Hãy cẩn thận",
+    "stayHealthy": "Giữ gìn sức khoẻ",
+    "welcomeText": "Chào mừng bạn đến với cổng thông tin về COVID-19.",
+    "getStarted": "BẮT ĐẦU",
+
+    "country": "Trong nước",
+    "worldwide": "Quốc tế",
+
+    "confirmed": "Nhiễm",
+    "recovered": "Khỏi bệnh",
+    "deaths": "Tử vong",
+    "treated": "Điều trị",
+    "vietnam-situation": "TÌNH HÌNH VIỆT NAM",
+    "todayStatistic": "Chỉ số trong ngày",
+    "daily-new-cases": "Ca nhiễm mới trong ngày",
+
+    "stayhome": "All you needed \nis stay at home.",
+    "lastestUpdate": "Covid-19 Lastest Update\n",
+    "newestUpdate": "Newest Update",
+    "details": "Chi tiết",
+    "more-about-covid": "Thông tin chi tiết về Covid-19",
+    "safety-tips": "Xem các phương pháp phòng bệnh từ các bác sĩ hàng đầu.", 
+
+    "introduce": "Giới thiệu",
+    "language": "Ngôn ngữ",
+    "place-has-been": "Nơi đã đến",
+    "place-history": "Lịch sử di chuyển",
+    "places_empty": "You haven't gone anywhere. \nPlease scan QR place to check in!",
+    "logout": "Đăng xuất",
+
+    "request_camera_permission": "Please allow PCCovid to use camera to scan QR in iphone setting.",
+    "checkin_success": "You have checked in successfully at",
+    "checkin_fail": "Có lỗi xảy ra. Vui lòng thử lại."
+}

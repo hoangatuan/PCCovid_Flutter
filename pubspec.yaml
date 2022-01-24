@@ -44,6 +44,7 @@ dependencies:
   shared_preferences: ^2.0.12
   sqflite: ^2.0.2
   qr_code_scanner: ^0.6.1
+  easy_localization: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,7 @@ flutter:
     - assets/
     - assets/icons/
     - assets/home/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

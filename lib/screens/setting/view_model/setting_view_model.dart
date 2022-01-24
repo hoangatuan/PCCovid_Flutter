@@ -1,3 +1,5 @@
+import 'package:easy_localization/src/public_ext.dart';
+
 class SettingViewModel {
   int get numberOfItems {
     return icons.length;
@@ -10,9 +12,9 @@ class SettingViewModel {
     "assets/icons/emergency-exit.png"
   ];
   final List<String> title = [
-    "Introduce",
-    "Language",
-    "Place has been",
-    "Log out"
+    "introduce".tr(),
+    "language".tr(),
+    "place-has-been".tr(),
+    "logout".tr()
   ];
 }

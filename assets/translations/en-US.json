@@ -1,0 +1,35 @@
+{
+    "be-aware": "Be aware",
+    "stayHealthy": "Stay healthy",
+    "welcomeText": "Welcome to COVID-19 information portal.",
+    "getStarted": "GET STARTED",
+    
+    "country": "Country",
+    "worldwide": "Worldwide",
+
+    "confirmed": "Confirmed",
+    "recovered": "Recovered",
+    "deaths": "Deaths",
+    "treated": "Treated",
+    "vietnam-situation": "VIETNAM SITUATION",
+    "todayStatistic": "Today statistic",
+    "daily-new-cases": "Daily New Cases",
+
+    "stayhome": "All you needed \nis stay at home.",
+    "lastestUpdate": "Covid-19 Lastest Update\n",
+    "newestUpdate": "Newest Update",
+    "details": "Details",
+    "more-about-covid": "More about Covid-19",
+    "safety-tips": "Know safety tips and precautions from top Doctors.",
+
+    "introduce": "Introduce",
+    "language": "Language",
+    "place-has-been": "Place has been",
+    "place-history": "Places History",
+    "places_empty": "You haven't gone anywhere. \nPlease scan QR place to check in!",
+    "logout": "Log out",
+
+    "request_camera_permission": "Please allow PCCovid to use camera to scan QR in iphone setting.",
+    "checkin_success": "You have checked in successfully at",
+    "checkin_fail": "Some errors have occurred. Please try again."
+}

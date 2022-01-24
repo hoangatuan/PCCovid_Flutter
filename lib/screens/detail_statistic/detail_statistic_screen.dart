@@ -5,6 +5,7 @@ import 'package:pccovid/screens/detail_statistic/viewmodels/weekly_statistic_cha
 import 'package:provider/provider.dart';
 
 import 'components/weekly_statistic_bar_chart_view.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 class StatisticDisplayConfig {
   String title;
@@ -35,26 +36,26 @@ class _DetailStatisticScreenState extends State<DetailStatisticScreen> {
           body: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
-              children: const [
+              children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("Today statistic",
-                      style: TextStyle(
+                  child: Text("todayStatistic".tr(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20)),
                 ),
-                CountryTodayStatistic(),
-                SizedBox(height: 8),
+                const CountryTodayStatistic(),
+                const SizedBox(height: 8),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text("Daily New Cases",
-                      style: TextStyle(
+                  child: Text("daily-new-cases".tr(),
+                      style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontSize: 20)),
                 ),
-                WeeklyStatisticBarChart(),
+                const WeeklyStatisticBarChart(),
               ],
             ),
           )),

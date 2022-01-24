@@ -51,5 +51,10 @@
 	</array>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Allow Flutter toools on your computer...</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>vn</string>
+		<string>en</string>
+	</array>
 </dict>
 </plist>

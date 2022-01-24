@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pccovid/screens/places_history/view/places_history_row.dart';
 import 'package:pccovid/screens/places_history/viewmodel/place_history_viewmodel.dart';
 import 'package:pccovid/screens/places_history/viewmodel/place_viewmodel.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 class PlacesHistoryScreen extends StatefulWidget {
   const PlacesHistoryScreen({Key? key}) : super(key: key);
@@ -17,15 +18,15 @@ class _PlacesHistoryScreenState extends State<PlacesHistoryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Places History'),
+          title: const Text('place-history').tr(),
         ),
         body: FutureBuilder(
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (viewModel.places.isEmpty) {
-                  return const Center(
+                  return Center(
                       child: Text(
-                    "You haven't gone anywhere. \nPlease scan QR place to check in!",
+                    "places_empty".tr(),
                     textAlign: TextAlign.center,
                   ));
                 }

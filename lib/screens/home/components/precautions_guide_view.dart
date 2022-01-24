@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../helpers/constants.dart';
+import 'package:easy_localization/src/public_ext.dart';
 
 class PrecautionsGuideView extends StatelessWidget {
   const PrecautionsGuideView({Key? key, required this.onPress})
@@ -33,7 +34,7 @@ class PrecautionsGuideView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 36),
-                    Text("Know safety tips and precautions from top Doctors.",
+                    Text("safety-tips".tr(),
                         style: TextStyle(color: color142237, fontSize: 15)),
                     const SizedBox(height: 12),
                     InkWell(
