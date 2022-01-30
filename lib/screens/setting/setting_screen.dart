@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/helpers/constants.dart';
+import 'package:pccovid/helpers/no_animation_transition.dart';
 import 'package:pccovid/screens/guide/guide_screen.dart';
 import 'package:pccovid/screens/language/language_screen.dart';
 import 'package:pccovid/screens/places_history/view/places_history_screen.dart';
@@ -64,7 +65,7 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Row(children: [
               Image.asset(viewModel.icons[index], height: 24),
               const SizedBox(width: 16),
-              Text(viewModel.title[index],
+              Text(viewModel.titles[index],
                   style: const TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w500))
             ]),
@@ -106,8 +107,10 @@ class _SettingScreenState extends State<SettingScreen> {
       default:
         SharePreferenceService.setValue(
             SharePreferenceKey.didReadGuideLine, false);
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const GuideScreen()));
+        Navigator.pushReplacement(
+            context,
+            NoAnimationMaterialPageRoute(
+                builder: (context) => const GuideScreen()));
     }
   }
 }

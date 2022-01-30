@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:pccovid/extensions/enum_extensions.dart';
 import 'package:pccovid/services/shared_pref_service.dart';
@@ -26,7 +27,8 @@ class LanguageService {
   }
 
   void changeAppLanguage(BuildContext context, Language language) {
-    context.setLocale(Locale(language.rawValue));
+    Locale newLocale = Locale(language.rawValue);
+    EasyLocalization.of(context)?.setLocale(newLocale);
     SharePreferenceService.setValue(
         SharePreferenceKey.selectedLanguage, language.rawValue);
   }

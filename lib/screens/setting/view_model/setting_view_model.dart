@@ -11,7 +11,8 @@ class SettingViewModel {
     "assets/icons/location-mark.png",
     "assets/icons/emergency-exit.png"
   ];
-  final List<String> title = [
+
+  final List<String> titles = [
     "introduce".tr(),
     "language".tr(),
     "place-has-been".tr(),

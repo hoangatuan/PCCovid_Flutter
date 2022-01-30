@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pccovid/helpers/no_animation_transition.dart';
 import 'package:pccovid/screens/base/tab_bar_view.dart';
 import 'package:pccovid/services/shared_pref_service.dart';
 import 'components/guide_bottom_view.dart';
@@ -29,7 +30,7 @@ class GuideScreen extends StatelessWidget {
                           SharePreferenceKey.didReadGuideLine, true);
                       Navigator.push(
                           context,
-                          MaterialPageRoute(
+                          NoAnimationMaterialPageRoute(
                               builder: (context) => const CustomTabBarView()));
                     },
                   ))
