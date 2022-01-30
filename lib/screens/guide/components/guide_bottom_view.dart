@@ -15,7 +15,6 @@ class GuideBottomView extends StatelessWidget {
 
     return Container(
       width: screenSize.width,
-      height: 224,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(

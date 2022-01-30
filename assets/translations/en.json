@@ -31,5 +31,9 @@
 
     "request_camera_permission": "Please allow PCCovid to use camera to scan QR in iphone setting.",
     "checkin_success": "You have checked in successfully at",
-    "checkin_fail": "Some errors have occurred. Please try again."
+    "checkin_fail": "Some errors have occurred. Please try again.",
+
+    "en": "English",
+    "vi": "Vietnamese",
+    "choose_language": "Choose Language"
 }

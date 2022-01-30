@@ -1,7 +1,7 @@
 import 'package:pccovid/extensions/enum_extensions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum SharePreferenceKey { didReadGuideLine }
+enum SharePreferenceKey { didReadGuideLine, selectedLanguage }
 
 class SharePreferenceService {
   static Future<bool> setValue(SharePreferenceKey key, dynamic value) async {

@@ -1,3 +1,5 @@
+// ignore_for_file: implementation_imports
+
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/detail_statistic/detail_statistic_screen.dart';
 import 'package:provider/provider.dart';

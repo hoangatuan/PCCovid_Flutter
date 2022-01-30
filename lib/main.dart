@@ -9,15 +9,19 @@ void main() async {
 
   runApp(EasyLocalization(
       child: const MyApp(),
-      supportedLocales: const [Locale('en', 'US'), Locale('vn')],
-      fallbackLocale: const Locale("vn"),
+      supportedLocales: const [Locale('en'), Locale('vi')],
+      fallbackLocale: const Locale("vi"),
       path: "assets/translations"));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

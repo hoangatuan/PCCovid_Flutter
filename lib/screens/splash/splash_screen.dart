@@ -1,6 +1,8 @@
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/base/tab_bar_view.dart';
 import 'package:pccovid/screens/guide/guide_screen.dart';
+import 'package:pccovid/services/language_service.dart';
 import 'package:pccovid/services/shared_pref_service.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,6 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     goToMainScreen(context);
+    LanguageService().setupLanguage(context);
 
     return Scaffold(
       body: Center(

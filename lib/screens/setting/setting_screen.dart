@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pccovid/helpers/constants.dart';
 import 'package:pccovid/screens/guide/guide_screen.dart';
+import 'package:pccovid/screens/language/language_screen.dart';
 import 'package:pccovid/screens/places_history/view/places_history_screen.dart';
 import 'package:pccovid/screens/setting/view_model/setting_view_model.dart';
 import 'package:pccovid/screens/webview/in_app_webview_screen.dart';
@@ -91,6 +92,10 @@ class _SettingScreenState extends State<SettingScreen> {
                     )));
         break;
       case 1:
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const LanguageSettingScreen()));
         break;
       case 2:
         Navigator.push(

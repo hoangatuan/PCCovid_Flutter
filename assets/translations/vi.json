@@ -15,9 +15,9 @@
     "todayStatistic": "Chỉ số trong ngày",
     "daily-new-cases": "Ca nhiễm mới trong ngày",
 
-    "stayhome": "All you needed \nis stay at home.",
-    "lastestUpdate": "Covid-19 Lastest Update\n",
-    "newestUpdate": "Newest Update",
+    "stayhome": "Hãy ở nhà \nđể giữ gìn sức khoẻ.",
+    "lastestUpdate": "Covid-19 số liệu mới nhất\n",
+    "newestUpdate": "Cập nhật gần nhất",
     "details": "Chi tiết",
     "more-about-covid": "Thông tin chi tiết về Covid-19",
     "safety-tips": "Xem các phương pháp phòng bệnh từ các bác sĩ hàng đầu.", 
@@ -26,10 +26,14 @@
     "language": "Ngôn ngữ",
     "place-has-been": "Nơi đã đến",
     "place-history": "Lịch sử di chuyển",
-    "places_empty": "You haven't gone anywhere. \nPlease scan QR place to check in!",
+    "places_empty": "Bạn chưa check-in tại đâu. \nVui lòng quét mã QR địa điểm để check-in!",
     "logout": "Đăng xuất",
 
     "request_camera_permission": "Please allow PCCovid to use camera to scan QR in iphone setting.",
-    "checkin_success": "You have checked in successfully at",
-    "checkin_fail": "Có lỗi xảy ra. Vui lòng thử lại."
+    "checkin_success": "Bạn đã check-in thành công tại",
+    "checkin_fail": "Có lỗi xảy ra. Vui lòng thử lại.",
+
+    "en": "Tiếng Anh",
+    "vi": "Tiếng Việt",
+    "choose_language": "Chọn ngôn ngữ"
 }
