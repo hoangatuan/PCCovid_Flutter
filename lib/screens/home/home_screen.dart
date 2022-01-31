@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pccovid/screens/detail_statistic/detail_statistic_screen.dart';
+import 'package:pccovid/screens/precautions/view/precaution_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'components/home_header_view.dart';
@@ -86,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const DetailStatisticScreen()));
+                      builder: (context) => const PrecautionScreen()));
             })
           ],
         ),

@@ -35,5 +35,16 @@
 
     "en": "English",
     "vi": "Vietnamese",
-    "choose_language": "Choose Language"
+    "choose_language": "Choose Language",
+
+    "get_to_know_about_covid": "Get to know \nabout covid-19",
+    "symtomps": "Symtomps",
+    "headache": "Headache",
+    "caugh": "Caugh",
+    "fever": "Fever",
+    "prevention": "Prevention",
+    "wear_face_mask": "Wear face mask",
+    "weak_mask_prevention": "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks.",
+    "wash_hands": "Wash your hands",
+    "wash_hands_prevention": "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks."
 }
