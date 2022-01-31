@@ -84,10 +84,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             PrecautionsGuideView(onPress: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const PrecautionScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PrecautionScreen()));
             })
           ],
         ),

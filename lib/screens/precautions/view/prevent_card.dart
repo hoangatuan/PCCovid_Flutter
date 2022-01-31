@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pccovid/screens/webview/in_app_webview_screen.dart';
+
+import '../prevention.dart';
 
 class PreventCard extends StatelessWidget {
-  String image;
-  String title;
-  String prevention;
+  static double height = 176;
+  Prevention precaution;
 
-  PreventCard(
-      {Key? key,
-      required this.image,
-      required this.title,
-      required this.prevention})
-      : super(key: key);
+  PreventCard({Key? key, required this.precaution}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,7 @@ class PreventCard extends StatelessWidget {
                         blurRadius: 24,
                         color: Colors.grey)
                   ])),
-          Image.asset(image),
+          Image.asset(precaution.image),
           Positioned(
               left: 130,
               child: Container(
@@ -44,10 +41,14 @@ class PreventCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(title,
+                    Text(precaution.title,
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold)),
-                    Text(prevention, style: const TextStyle(fontSize: 12))
+                    Text(precaution.prevention,
+                        style: const TextStyle(fontSize: 12)),
+                    Center(
+                        child: Image.asset("assets/icons/next.png",
+                            width: 10, height: 10))
                   ],
                 ),
               ))
